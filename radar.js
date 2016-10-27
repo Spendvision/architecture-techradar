@@ -98,15 +98,17 @@ for (var i = 0; i < radar_data.length; i++) {
       }
       return 0;
     });
-    
-    var offsetIndex = 0;
-    for (var stageIdx in _(itemsByStage).keys()) {
 
+    console.log("items by stage=" + itemsByStage);
+    
+    var offsetIndex = 0;    
+    for (var stageIdx in _(itemsByStage).keys()) {
+        console.log("stage =" + stageIdx);
         if (stageIdx > 0) {
             offsetIndex = offsetIndex + itemsByStage[stageIdx-1].length + 1; 
             console.log("offsetIndex = " + itemsByStage[stageIdx-1].length, offsetIndex );
         }
-
+        console.log("pv.label=" + pv.label);
         radar.add(pv.Label)         
             .left( radar_data[i].left + headingFontSize )
             .top( radar_data[i].top + quadrantFontSize + spacer + (stageIdx * headingFontSize) + (offsetIndex * fontSize) )
